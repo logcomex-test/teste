@@ -17,8 +17,8 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/users/{type}', 'UsersController@getUsersByType');
-$router->get('/details', 'UsersController@getUsersByTypeDetails');
+$router->get('/users/consult', 'UsersController@getUsersByType');
+$router->get('/users/list', 'UsersController@getUsersByTypeDetails');
 
 
 $router->get('/foo', function () {

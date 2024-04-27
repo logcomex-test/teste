@@ -1,7 +1,3 @@
-To run:
-
-
-
 # Documentação da API
 Esta é a documentação da API que fornece acesso aos dados dos usuários.
 
@@ -19,38 +15,37 @@ php artisan migrate && php artisan db:seed
 ## Rotas
 
 ### Consultar Usuários
-GET /api/users/consultar
-
+GET /users/consult
 
 Endpoint para realizar consultas filtradas de usuários.
 
 **Parâmetros de Consulta:**
 
-- `type` (opcional): Filtrar por tipo de usuário.
-- `state` (opcional): Filtrar por estado do usuário.
-- `age_min` (opcional): Filtrar por idade mínima do usuário.
-- `age_max` (opcional): Filtrar por idade máxima do usuário.
+- `name` [varchar] (opcional): Filtrar por nome de usuário.
+- `state` [char(2)] (opcional): Filtrar por estado do usuário.
+- `address` [text] (opcional): Filtrar por endereço do usuário.
+- `age` [int] (opcional): Filtrar por idade exata do usuário.
+- `age_min` [int] (opcional): Filtrar por idade mínima do usuário.
+- `age_max` [int] (opcional): Filtrar por idade máxima do usuário.
 
 ### Listar Usuários
-GET /api/users/listar
-
+GET /users/list
 
 Endpoint para listar usuários com base nos filtros especificados.
 
 **Parâmetros de Consulta:**
 
-- `type` (opcional): Filtrar por tipo de usuário.
-- `state` (opcional): Filtrar por estado do usuário.
-- `age_min` (opcional): Filtrar por idade mínima do usuário.
-- `age_max` (opcional): Filtrar por idade máxima do usuário.
-- `page` (opcional): Número da página a ser visualizada.
+- `name` [varchar] (opcional): Filtrar por nome de usuário.
+- `state` [char(2)] (opcional): Filtrar por estado do usuário.
+- `address` [text] (opcional): Filtrar por endereço do usuário.
+- `age` [int] (opcional): Filtrar por idade exata do usuário.
+- `age_min` [int] (opcional): Filtrar por idade mínima do usuário.
+- `age_max` [int] (opcional): Filtrar por idade máxima do usuário.
 
 ## Exemplos
 
 ### Consultar Usuários
-GET /api/users/consultar?type=admin&state=SP&age_min=25&age_max=40
-
-
+GET /users/consult?state=SP&age_min=25&age_max=40
 Resposta:
 
 ```json
@@ -72,7 +67,7 @@ Resposta:
 ]
 
 ### Listar Usuários
-GET /api/users/listar?type=normal&state=RJ&page=1
+GET /users/list?age=32&state=RJ&page=1
 
 ```json
 {
@@ -81,7 +76,7 @@ GET /api/users/listar?type=normal&state=RJ&page=1
             "id": 3,
             "name": "Pedro",
             "state": "RJ",
-            "age": 28,
+            "age": 32,
             "address": "Av. X, 789"
         },
         {

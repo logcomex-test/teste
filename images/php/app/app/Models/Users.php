@@ -36,20 +36,20 @@ class Users extends Model
 
     public function scopeFilter($query, Request $request)
     {
-        if ($request->has('char_column')) {
-            $query->where('state', $request->input('char_column'));
+        if ($request->has('state')) {
+            $query->where('state', $request->input('state'));
         }
 
-        if ($request->has('varchar_column')) {
-            $query->where('name', $request->input('varchar_column'));
+        if ($request->has('name')) {
+            $query->where('name', 'like', $request->input('name'));
         }
 
-        if ($request->has('text_column')) {
-            $query->where('address', 'like', $request->input('text_column'));
+        if ($request->has('address')) {
+            $query->where('address', 'like', $request->input('address'));
         }
 
-        if ($request->has('int_column')) {
-            $query->where('age', $request->input('int_column'));
+        if ($request->has('age')) {
+            $query->where('age', $request->input('age'));
         }
 
         if ($request->has('age_min')) {
