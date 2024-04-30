@@ -11,6 +11,7 @@ Dentro da pasta raiz do projeto:
 docker-compose exec php sh
 chmod -R 777 /var/www/html/app/storage/
 php artisan migrate && php artisan db:seed
+```
 
 ## Rotas
 
@@ -65,7 +66,7 @@ Resposta:
         "address": "Rua B, 456"
     }
 ]
-
+```
 ### Listar Usuários
 GET /users/list?age=32&state=RJ&page=1
 
@@ -94,3 +95,4 @@ GET /users/list?age=32&state=RJ&page=1
         "last_page": 2
     }
 }
+```
