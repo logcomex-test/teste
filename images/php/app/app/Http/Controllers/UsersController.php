@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function getUsersByType(Request $request, $type)
+    public function getUsersByType(Request $request)
     {
         $query = Users::filter($request)->get();
 

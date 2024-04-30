@@ -20,7 +20,6 @@ $router->get('/', function () use ($router) {
 $router->get('/users/consult', 'UsersController@getUsersByType');
 $router->get('/users/list', 'UsersController@getUsersByTypeDetails');
 
-
 $router->get('/foo', function () {
     return 'Hello World';
 });

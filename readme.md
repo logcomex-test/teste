@@ -4,14 +4,23 @@ Esta é a documentação da API que fornece acesso aos dados dos usuários.
 ## Contexto
 A API permite consultar e listar usuários com base em vários filtros, como tipo de usuário, estado, idade, etc. Os dados são paginados para facilitar a visualização e a manipulação de grandes conjuntos de dados.
 
-## Instalação
+## Instalação e execução
 Dentro da pasta raiz do projeto:
 
 ```bash
+docker-compose up
 docker-compose exec php sh
 chmod -R 777 /var/www/html/app/storage/
 php artisan migrate && php artisan db:seed
 ```
+
+#### Steps:
+1 - Inicialização do docker compose, isso ira montar a máquina do PHP e a do MySQL.
+2 - Acessar a imagem do container para poder popular o banco de dados.
+3 - Dar permissão para a pasta de storage de logs (exigência do Laravel/Lumen).
+4 - Cria a tabela do banco de dados e popula.
+
+Se tudo estiver correto, basta acessar no navegador ou no postman: http://localhost:8000/users/consult?char_column=SC
 
 ## Rotas
 
